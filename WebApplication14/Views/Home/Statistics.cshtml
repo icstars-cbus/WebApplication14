@@ -9,6 +9,7 @@
 		<h2>STATISTICS</h2>
 
 	</span>
+
 	<center>
 		<div class="row">
 			<div class="col-sm-6">
@@ -19,67 +20,9 @@
 			</div>
 		</div>
 	</center>
-	<center><script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	
 
-	<div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-	<script>
-		 <!-- JAVASCRIPT CODE GOES HERE -- >
-	 var trace1 = {
-			x: ['giraffes', 'orangutans', 'monkeys'],
-			y: [20, 14, 23],
-			name: 'SF Zoo',
-			type: 'bar'
-		};
-
-		var trace2 = {
-			x: ['giraffes', 'orangutans', 'monkeys'],
-			y: [12, 18, 29],
-			name: 'LA Zoo',
-			type: 'bar'
-		};
-
-		var data = [trace1, trace2];
-		var layout = { barmode: 'group' };
-
-		Plotly.newPlot('myDiv', data, layout);
-	</script></center>
-
-		<h2>OPERATIONS</h2>
-	<script>
-		window.onload = function () {
-
-			var chart = new CanvasJS.Chart("chartContainer", {
-				animationEnabled: true,
-				theme: "light2",
-				title: {
-					text: "Simple Line Chart"
-				},
-				axisY: {
-					includeZero: false
-				},
-				data: [{
-					type: "line",
-					dataPoints: [
-						{ y: 450 },
-						{ y: 414 },
-						{ y: 520, indexLabel: "highest", markerColor: "red", markerType: "triangle" },
-						{ y: 460 },
-						{ y: 450 },
-						{ y: 500 },
-						{ y: 480 },
-						{ y: 480 },
-						{ y: 410, indexLabel: "lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
-						{ y: 500 },
-						{ y: 480 },
-						{ y: 510 }
-					]
-				}]
-			});
-			chart.render();
-
-		}
-	</script>
-		<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<h2>OPERATIONS</h2>
+		
 
 	<h2>FINACIALS</h2>
