@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ITSCADM.AEP_DATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AEP_DATE">
+          <Key>
+            <PropertyRef Name="DATE_ID" />
+            <PropertyRef Name="FULL_DATE_DT" />
+            <PropertyRef Name="BUS_DAY_FL" />
+            <PropertyRef Name="BUS_DAY_SUM_QY" />
+            <PropertyRef Name="DAY_OF_WEEK_TX" />
+            <PropertyRef Name="DAY_OF_MONTH_NB" />
+            <PropertyRef Name="WEEK_OF_YEAR_NB" />
+            <PropertyRef Name="BSA_PAY_PERD_DT" />
+            <PropertyRef Name="BSA_PAY_PERD_NB" />
+            <PropertyRef Name="BSU_PAY_PERD_DT" />
+            <PropertyRef Name="BSU_PAY_PERD_NB" />
+            <PropertyRef Name="MONTH_NB" />
+            <PropertyRef Name="MONTH_TX" />
+            <PropertyRef Name="CURR_MONTH_SEQ_NB" />
+            <PropertyRef Name="QTR_NB" />
+            <PropertyRef Name="QTR_TX" />
+            <PropertyRef Name="YEAR_NB" />
+            <PropertyRef Name="CURR_YEAR_SEQ_NB" />
+            <PropertyRef Name="SEMIANNUAL_YEAR_TX" />
+            <PropertyRef Name="LAST_DATE_MO_DT" />
+            <PropertyRef Name="LAST_UPDT_DT" />
+          </Key>
+          <Property Name="DATE_ID" Type="number" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FULL_DATE_DT" Type="date" Nullable="false" />
+          <Property Name="BUS_DAY_FL" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="BUS_DAY_SUM_QY" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="DAY_OF_WEEK_TX" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="DAY_OF_MONTH_NB" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="WEEK_OF_YEAR_NB" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="BSA_PAY_PERD_DT" Type="date" Nullable="false" />
+          <Property Name="BSA_PAY_PERD_NB" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="BSU_PAY_PERD_DT" Type="date" Nullable="false" />
+          <Property Name="BSU_PAY_PERD_NB" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="MONTH_NB" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="MONTH_TX" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="CURR_MONTH_SEQ_NB" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="QTR_NB" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="QTR_TX" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="YEAR_NB" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="CURR_YEAR_SEQ_NB" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="SEMIANNUAL_YEAR_TX" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="LAST_DATE_MO_DT" Type="date" Nullable="false" />
+          <Property Name="LAST_UPDT_DT" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORY_DIM">
+          <Key>
+            <PropertyRef Name="CATEGORY_ID" />
+          </Key>
+          <Property Name="CATEGORY_ID" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_NAME" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="CATEGORY_DESC" Type="char" MaxLength="60" />
+          <Property Name="LAST_UPDT_DTTM" Type="timestamp" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="char" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="MEASURE_DIM">
+          <Key>
+            <PropertyRef Name="MEASURE_ID" />
+          </Key>
+          <Property Name="MEASURE_ID" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MEASURE_NAME" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="MEASURE_DESC" Type="char" MaxLength="100" />
+          <Property Name="MEASURE_TYPE" Type="char" MaxLength="10" />
+          <Property Name="RPT_FREQ_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LAST_UPDT_DTTM" Type="timestamp" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="char" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="RPT_FREQ_DIM">
+          <Key>
+            <PropertyRef Name="RPT_FREQ_ID" />
+          </Key>
+          <Property Name="RPT_FREQ_ID" Type="number" Precision="38" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RPT_FREQ_NAME" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="LAST_UPDT_DTTM" Type="timestamp" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="char" MaxLength="8" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ITSCADM.SCORECARD_FACT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SCORECARD_FACT">
+          <Key>
+            <PropertyRef Name="CATEGORY_ID" />
+            <PropertyRef Name="DATE_ID" />
+            <PropertyRef Name="MEASURE_ID" />
+          </Key>
+          <Property Name="CATEGORY_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DATE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MEASURE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MEASURE_ENTITY_1" Type="char" MaxLength="10" />
+          <Property Name="MEASURE_ENTITY_TYPE_1" Type="char" MaxLength="10" />
+          <Property Name="MEASURE_ENTITY_2" Type="char" MaxLength="10" />
+          <Property Name="MEASURE_ENTITY_TYPE_2" Type="char" MaxLength="10" />
+          <Property Name="MEASURE_VALUE" Type="varchar2" MaxLength="4000" />
+          <Property Name="LAST_UPDT_DTTM" Type="timestamp" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="char" MaxLength="8" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CATEGORY_DIM" EntityType="Self.CATEGORY_DIM" Schema="ITSCADM" store:Type="Tables" />
+          <EntitySet Name="MEASURE_DIM" EntityType="Self.MEASURE_DIM" Schema="ITSCADM" store:Type="Tables" />
+          <EntitySet Name="RPT_FREQ_DIM" EntityType="Self.RPT_FREQ_DIM" Schema="ITSCADM" store:Type="Tables" />
+          <EntitySet Name="AEP_DATE" EntityType="Self.AEP_DATE" store:Type="Tables" store:Schema="ITSCADM">
+            <DefiningQuery>SELECT 
+"AEP_DATE"."DATE_ID" AS "DATE_ID", 
+"AEP_DATE"."FULL_DATE_DT" AS "FULL_DATE_DT", 
+"AEP_DATE"."BUS_DAY_FL" AS "BUS_DAY_FL", 
+"AEP_DATE"."BUS_DAY_SUM_QY" AS "BUS_DAY_SUM_QY", 
+"AEP_DATE"."DAY_OF_WEEK_TX" AS "DAY_OF_WEEK_TX", 
+"AEP_DATE"."DAY_OF_MONTH_NB" AS "DAY_OF_MONTH_NB", 
+"AEP_DATE"."WEEK_OF_YEAR_NB" AS "WEEK_OF_YEAR_NB", 
+"AEP_DATE"."BSA_PAY_PERD_DT" AS "BSA_PAY_PERD_DT", 
+"AEP_DATE"."BSA_PAY_PERD_NB" AS "BSA_PAY_PERD_NB", 
+"AEP_DATE"."BSU_PAY_PERD_DT" AS "BSU_PAY_PERD_DT", 
+"AEP_DATE"."BSU_PAY_PERD_NB" AS "BSU_PAY_PERD_NB", 
+"AEP_DATE"."MONTH_NB" AS "MONTH_NB", 
+"AEP_DATE"."MONTH_TX" AS "MONTH_TX", 
+"AEP_DATE"."CURR_MONTH_SEQ_NB" AS "CURR_MONTH_SEQ_NB", 
+"AEP_DATE"."QTR_NB" AS "QTR_NB", 
+"AEP_DATE"."QTR_TX" AS "QTR_TX", 
+"AEP_DATE"."YEAR_NB" AS "YEAR_NB", 
+"AEP_DATE"."CURR_YEAR_SEQ_NB" AS "CURR_YEAR_SEQ_NB", 
+"AEP_DATE"."SEMIANNUAL_YEAR_TX" AS "SEMIANNUAL_YEAR_TX", 
+"AEP_DATE"."LAST_DATE_MO_DT" AS "LAST_DATE_MO_DT", 
+"AEP_DATE"."LAST_UPDT_DT" AS "LAST_UPDT_DT"
+FROM "ITSCADM"."AEP_DATE" "AEP_DATE"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SCORECARD_FACT" EntityType="Self.SCORECARD_FACT" store:Type="Tables" store:Schema="ITSCADM">
+            <DefiningQuery>SELECT 
+"SCORECARD_FACT"."CATEGORY_ID" AS "CATEGORY_ID", 
+"SCORECARD_FACT"."DATE_ID" AS "DATE_ID", 
+"SCORECARD_FACT"."MEASURE_ID" AS "MEASURE_ID", 
+"SCORECARD_FACT"."MEASURE_ENTITY_1" AS "MEASURE_ENTITY_1", 
+"SCORECARD_FACT"."MEASURE_ENTITY_TYPE_1" AS "MEASURE_ENTITY_TYPE_1", 
+"SCORECARD_FACT"."MEASURE_ENTITY_2" AS "MEASURE_ENTITY_2", 
+"SCORECARD_FACT"."MEASURE_ENTITY_TYPE_2" AS "MEASURE_ENTITY_TYPE_2", 
+"SCORECARD_FACT"."MEASURE_VALUE" AS "MEASURE_VALUE", 
+"SCORECARD_FACT"."LAST_UPDT_DTTM" AS "LAST_UPDT_DTTM", 
+"SCORECARD_FACT"."LAST_UPDT_ID" AS "LAST_UPDT_ID"
+FROM "ITSCADM"."SCORECARD_FACT" "SCORECARD_FACT"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATEGORY_DIM">
+          <Key>
+            <PropertyRef Name="CATEGORY_ID" />
+          </Key>
+          <Property Name="CATEGORY_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CATEGORY_DESC" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="LAST_UPDT_DTTM" Type="DateTime" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MEASURE_DIM">
+          <Key>
+            <PropertyRef Name="MEASURE_ID" />
+          </Key>
+          <Property Name="MEASURE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MEASURE_NAME" Type="String" MaxLength="60" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MEASURE_DESC" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="MEASURE_TYPE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="RPT_FREQ_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LAST_UPDT_DTTM" Type="DateTime" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RPT_FREQ_DIM">
+          <Key>
+            <PropertyRef Name="RPT_FREQ_ID" />
+          </Key>
+          <Property Name="RPT_FREQ_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RPT_FREQ_NAME" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LAST_UPDT_DTTM" Type="DateTime" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AEP_DATE">
+          <Key>
+            <PropertyRef Name="DATE_ID" />
+            <PropertyRef Name="FULL_DATE_DT" />
+            <PropertyRef Name="BUS_DAY_FL" />
+            <PropertyRef Name="BUS_DAY_SUM_QY" />
+            <PropertyRef Name="DAY_OF_WEEK_TX" />
+            <PropertyRef Name="DAY_OF_MONTH_NB" />
+            <PropertyRef Name="WEEK_OF_YEAR_NB" />
+            <PropertyRef Name="BSA_PAY_PERD_DT" />
+            <PropertyRef Name="BSA_PAY_PERD_NB" />
+            <PropertyRef Name="BSU_PAY_PERD_DT" />
+            <PropertyRef Name="BSU_PAY_PERD_NB" />
+            <PropertyRef Name="MONTH_NB" />
+            <PropertyRef Name="MONTH_TX" />
+            <PropertyRef Name="CURR_MONTH_SEQ_NB" />
+            <PropertyRef Name="QTR_NB" />
+            <PropertyRef Name="QTR_TX" />
+            <PropertyRef Name="YEAR_NB" />
+            <PropertyRef Name="CURR_YEAR_SEQ_NB" />
+            <PropertyRef Name="SEMIANNUAL_YEAR_TX" />
+            <PropertyRef Name="LAST_DATE_MO_DT" />
+            <PropertyRef Name="LAST_UPDT_DT" />
+          </Key>
+          <Property Name="DATE_ID" Type="Int64" Nullable="false" />
+          <Property Name="FULL_DATE_DT" Type="DateTime" Nullable="false" />
+          <Property Name="BUS_DAY_FL" Type="Boolean" Nullable="false" />
+          <Property Name="BUS_DAY_SUM_QY" Type="Int32" Nullable="false" />
+          <Property Name="DAY_OF_WEEK_TX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DAY_OF_MONTH_NB" Type="Byte" Nullable="false" />
+          <Property Name="WEEK_OF_YEAR_NB" Type="Byte" Nullable="false" />
+          <Property Name="BSA_PAY_PERD_DT" Type="DateTime" Nullable="false" />
+          <Property Name="BSA_PAY_PERD_NB" Type="Int16" Nullable="false" />
+          <Property Name="BSU_PAY_PERD_DT" Type="DateTime" Nullable="false" />
+          <Property Name="BSU_PAY_PERD_NB" Type="Int16" Nullable="false" />
+          <Property Name="MONTH_NB" Type="Int16" Nullable="false" />
+          <Property Name="MONTH_TX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CURR_MONTH_SEQ_NB" Type="Int16" Nullable="false" />
+          <Property Name="QTR_NB" Type="Int16" Nullable="false" />
+          <Property Name="QTR_TX" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YEAR_NB" Type="Int16" Nullable="false" />
+          <Property Name="CURR_YEAR_SEQ_NB" Type="Int16" Nullable="false" />
+          <Property Name="SEMIANNUAL_YEAR_TX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LAST_DATE_MO_DT" Type="DateTime" Nullable="false" />
+          <Property Name="LAST_UPDT_DT" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SCORECARD_FACT">
+          <Key>
+            <PropertyRef Name="CATEGORY_ID" />
+            <PropertyRef Name="DATE_ID" />
+            <PropertyRef Name="MEASURE_ID" />
+          </Key>
+          <Property Name="CATEGORY_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DATE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MEASURE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MEASURE_ENTITY_1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MEASURE_ENTITY_TYPE_1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MEASURE_ENTITY_2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MEASURE_ENTITY_TYPE_2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MEASURE_VALUE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_UPDT_DTTM" Type="DateTime" Precision="6" />
+          <Property Name="LAST_UPDT_ID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AEPDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORY_DIM" EntityType="Self.CATEGORY_DIM" />
+          <EntitySet Name="MEASURE_DIM" EntityType="Self.MEASURE_DIM" />
+          <EntitySet Name="RPT_FREQ_DIM" EntityType="Self.RPT_FREQ_DIM" />
+          <EntitySet Name="AEP_DATE" EntityType="Self.AEP_DATE" />
+          <EntitySet Name="SCORECARD_FACT" EntityType="Self.SCORECARD_FACT" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AEPDbContext">
+          <EntitySetMapping Name="CATEGORY_DIM">
+            <EntityTypeMapping TypeName="Model.CATEGORY_DIM">
+              <MappingFragment StoreEntitySet="CATEGORY_DIM">
+                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+                <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
+                <ScalarProperty Name="CATEGORY_DESC" ColumnName="CATEGORY_DESC" />
+                <ScalarProperty Name="LAST_UPDT_DTTM" ColumnName="LAST_UPDT_DTTM" />
+                <ScalarProperty Name="LAST_UPDT_ID" ColumnName="LAST_UPDT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEASURE_DIM">
+            <EntityTypeMapping TypeName="Model.MEASURE_DIM">
+              <MappingFragment StoreEntitySet="MEASURE_DIM">
+                <ScalarProperty Name="MEASURE_ID" ColumnName="MEASURE_ID" />
+                <ScalarProperty Name="MEASURE_NAME" ColumnName="MEASURE_NAME" />
+                <ScalarProperty Name="MEASURE_DESC" ColumnName="MEASURE_DESC" />
+                <ScalarProperty Name="MEASURE_TYPE" ColumnName="MEASURE_TYPE" />
+                <ScalarProperty Name="RPT_FREQ_ID" ColumnName="RPT_FREQ_ID" />
+                <ScalarProperty Name="LAST_UPDT_DTTM" ColumnName="LAST_UPDT_DTTM" />
+                <ScalarProperty Name="LAST_UPDT_ID" ColumnName="LAST_UPDT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPT_FREQ_DIM">
+            <EntityTypeMapping TypeName="Model.RPT_FREQ_DIM">
+              <MappingFragment StoreEntitySet="RPT_FREQ_DIM">
+                <ScalarProperty Name="RPT_FREQ_ID" ColumnName="RPT_FREQ_ID" />
+                <ScalarProperty Name="RPT_FREQ_NAME" ColumnName="RPT_FREQ_NAME" />
+                <ScalarProperty Name="LAST_UPDT_DTTM" ColumnName="LAST_UPDT_DTTM" />
+                <ScalarProperty Name="LAST_UPDT_ID" ColumnName="LAST_UPDT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AEP_DATE">
+            <EntityTypeMapping TypeName="Model.AEP_DATE">
+              <MappingFragment StoreEntitySet="AEP_DATE">
+                <ScalarProperty Name="DATE_ID" ColumnName="DATE_ID" />
+                <ScalarProperty Name="FULL_DATE_DT" ColumnName="FULL_DATE_DT" />
+                <ScalarProperty Name="BUS_DAY_FL" ColumnName="BUS_DAY_FL" />
+                <ScalarProperty Name="BUS_DAY_SUM_QY" ColumnName="BUS_DAY_SUM_QY" />
+                <ScalarProperty Name="DAY_OF_WEEK_TX" ColumnName="DAY_OF_WEEK_TX" />
+                <ScalarProperty Name="DAY_OF_MONTH_NB" ColumnName="DAY_OF_MONTH_NB" />
+                <ScalarProperty Name="WEEK_OF_YEAR_NB" ColumnName="WEEK_OF_YEAR_NB" />
+                <ScalarProperty Name="BSA_PAY_PERD_DT" ColumnName="BSA_PAY_PERD_DT" />
+                <ScalarProperty Name="BSA_PAY_PERD_NB" ColumnName="BSA_PAY_PERD_NB" />
+                <ScalarProperty Name="BSU_PAY_PERD_DT" ColumnName="BSU_PAY_PERD_DT" />
+                <ScalarProperty Name="BSU_PAY_PERD_NB" ColumnName="BSU_PAY_PERD_NB" />
+                <ScalarProperty Name="MONTH_NB" ColumnName="MONTH_NB" />
+                <ScalarProperty Name="MONTH_TX" ColumnName="MONTH_TX" />
+                <ScalarProperty Name="CURR_MONTH_SEQ_NB" ColumnName="CURR_MONTH_SEQ_NB" />
+                <ScalarProperty Name="QTR_NB" ColumnName="QTR_NB" />
+                <ScalarProperty Name="QTR_TX" ColumnName="QTR_TX" />
+                <ScalarProperty Name="YEAR_NB" ColumnName="YEAR_NB" />
+                <ScalarProperty Name="CURR_YEAR_SEQ_NB" ColumnName="CURR_YEAR_SEQ_NB" />
+                <ScalarProperty Name="SEMIANNUAL_YEAR_TX" ColumnName="SEMIANNUAL_YEAR_TX" />
+                <ScalarProperty Name="LAST_DATE_MO_DT" ColumnName="LAST_DATE_MO_DT" />
+                <ScalarProperty Name="LAST_UPDT_DT" ColumnName="LAST_UPDT_DT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SCORECARD_FACT">
+            <EntityTypeMapping TypeName="Model.SCORECARD_FACT">
+              <MappingFragment StoreEntitySet="SCORECARD_FACT">
+                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+                <ScalarProperty Name="DATE_ID" ColumnName="DATE_ID" />
+                <ScalarProperty Name="MEASURE_ID" ColumnName="MEASURE_ID" />
+                <ScalarProperty Name="MEASURE_ENTITY_1" ColumnName="MEASURE_ENTITY_1" />
+                <ScalarProperty Name="MEASURE_ENTITY_TYPE_1" ColumnName="MEASURE_ENTITY_TYPE_1" />
+                <ScalarProperty Name="MEASURE_ENTITY_2" ColumnName="MEASURE_ENTITY_2" />
+                <ScalarProperty Name="MEASURE_ENTITY_TYPE_2" ColumnName="MEASURE_ENTITY_TYPE_2" />
+                <ScalarProperty Name="MEASURE_VALUE" ColumnName="MEASURE_VALUE" />
+                <ScalarProperty Name="LAST_UPDT_DTTM" ColumnName="LAST_UPDT_DTTM" />
+                <ScalarProperty Name="LAST_UPDT_ID" ColumnName="LAST_UPDT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

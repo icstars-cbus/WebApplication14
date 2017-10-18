@@ -1,5 +1,6 @@
-﻿@{
-	ViewBag.Title = "SAFETY";
+﻿@model List<WebApplication14.Models.SCORECARD_FACT>
+@{
+    ViewBag.Title = "Safety";
 }
 
 <center>
@@ -25,7 +26,11 @@
 <center>
 	<div class="row">
 		<div class="col-sm-6"></div>
-		<div class="col-sm-6"></div>
+		<div class="col-sm-6">D.A.R.T. Rate</div>
+       @{
+            var SA1 = Model.Find(x => x.MEASURE_ID == 23);
+            @SA1.MEASURE_VALUE
+        }
 	</div>
 	
 	<br>
@@ -38,7 +43,10 @@
 		<span class="navbar-text">
 
 			<big>SAFETY</big>
-
+            @*@{
+                var SA2 = Model.Find(x => x.MEASURE_ID == 1);
+                <b>@SA2.MEASURE_VALUE</b>
+            }*@
 		</span>
 </center>
 <img src="~/Content/Images/49855386-Hazard-warning-attention-sign-Icon-in-a-red-triangle-with-exclamation-mark-symbol-isolated-on-a-whit-Stock-Illustration.jpg" width="100" />

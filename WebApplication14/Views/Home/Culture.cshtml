@@ -1,4 +1,6 @@
 ﻿@{
+    @model List<WebApplication14.Models.SCORECARD_FACT>
+
     ViewBag.Title = "EMPLOYEES";
 }
 <h2>CULTURE</h2>
@@ -7,11 +9,16 @@
 		<big>TEAM PHOTOS</big>
 		<div class="row">
 			<div class="col-sm-12"><div id="myCarousel" class="carousel slide" data-ride="carousel">
+                
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1"></li>
 		<li data-target="#myCarousel" data-slide-to="2"></li>
+        @{
+            var CUa = Model.Find(x => x.MEASURE_ID == 4);
+            <b>@CUa.MEASURE_VALUE</b>
+            }
 	</ol>
 
 	<!-- Wrapper for slides -->
@@ -26,6 +33,10 @@
 
 		<div class="item">
 			<center><img src="~/Content/Images/lca_group650.jpg" width="800" height="600"></center>
+          @{
+              var CUb = Model.Find(x => x.MEASURE_ID == 6);
+            <b>@CUb.MEASURE_VALUE</b>
+        }  
 		</div>
 	</div>
 
@@ -39,10 +50,18 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div>
+@{
+    var CUf = Model.Find(x => x.MEASURE_ID == 5);
+    <b>@CUf.MEASURE_VALUE</b>
+}
 </div>
 			
 
 		</div>
+        @{
+            var CUc = Model.Find(x => x.MEASURE_ID == 7);
+            <b>@CUc.MEASURE_VALUE</b>
+        }
 	</span>
 </nav>
 
